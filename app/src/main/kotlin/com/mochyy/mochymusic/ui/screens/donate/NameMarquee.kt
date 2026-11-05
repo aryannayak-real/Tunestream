@@ -1,4 +1,4 @@
-// the blue band at the top of the support sheet, two rows of huge MOCHY MUSIC gliding past each other
+// the blue band at the top of the support sheet, two rows of huge TUNESTREAM gliding past each other
 
 package com.mochyy.mochymusic.ui.screens.donate
 
@@ -38,14 +38,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.math.ceil
 
-private const val MarqueeText = "MOCHY MUSIC"
+private const val MarqueeText = "TUNESTREAM"
 
 // the band is this many capital-heights tall: two rows, the gap between them, a sliver under the bottom one, the top one tucked a bit past the edge
 private const val BandInCaps = 2.13f
 private const val RowGapInCaps = 0.1f
 private const val TopTuckInCaps = 0.04f
 
-// space between one MOCHY MUSIC and the next, as a share of the capital height
+// space between one TUNESTREAM and the next, as a share of the capital height
 private const val WordGapInCaps = 0.45f
 
 // the bottom row starts this far through a word, so the two rows never line up
@@ -61,7 +61,7 @@ private val MarqueeInk = Color(0xFFE6F0F7)
 @Immutable
 private class MarqueeStrip(val image: ImageBitmap, val capHeight: Float, val margin: Float)
 
-/** two rows of MOCHY MUSIC on the blue band, the top one drifting right and the bottom one left, forever */
+/** two rows of TUNESTREAM on the blue band, the top one drifting right and the bottom one left, forever */
 @Composable
 fun NameMarquee(modifier: Modifier = Modifier, speed: Dp = 34.dp) {
     val context = LocalContext.current

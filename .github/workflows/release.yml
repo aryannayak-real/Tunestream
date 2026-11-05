@@ -80,13 +80,13 @@ jobs:
         run: |
           APK=$(find app/build/outputs/apk/universalGms/release -type f -name '*.apk' -print -quit)
           test -n "$APK"
-          cp "$APK" mochy.apk
+          cp "$APK" TuneStream.apk
 
       - name: Publish GitHub Release
         if: steps.release_check.outputs.exists != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${{ steps.version.outputs.tag }}" mochy.apk \
-            --title "${{ steps.version.outputs.version }}" \
+          gh release create "${{ steps.version.outputs.tag }}" TuneStream.apk \
+            --title "TuneStream ${{ steps.version.outputs.version }}" \
             --generate-notes

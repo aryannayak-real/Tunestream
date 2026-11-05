@@ -181,7 +181,7 @@ private val MoreCredits = listOf(
 private val Licenses = listOf(
     LicenseEntry(
         tag = "GPL-3.0",
-        title = "Mochy Music · GNU General Public License v3.0",
+        title = "TuneStream · GNU General Public License v3.0",
         subtitle = "Free and open source software, source code on GitHub",
         url = "$GithubRepoUrl/blob/main/LICENSE",
     ),
@@ -386,7 +386,7 @@ private fun ColumnScope.AboutSheetContent(
                 )
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    text = "Mochy Music | $installed",
+                    text = "TuneStream | $installed",
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
                     letterSpacing = (-0.4).sp,
@@ -403,7 +403,7 @@ private fun ColumnScope.AboutSheetContent(
                     .padding(horizontal = 18.dp, vertical = 16.dp),
             ) {
                 Text(
-                    text = "Mochy Music is a music app but\nkinda cool.",
+                    text = "TuneStream is a music app\nkinda cool.",
                     fontSize = 15.sp,
                     lineHeight = 19.sp,
                     fontWeight = FontWeight.Bold,
@@ -419,61 +419,17 @@ private fun ColumnScope.AboutSheetContent(
                     text = "Support me please :3 \u2192",
                     onClick = { popup.showSupportSheet() },
                 )
-                AboutPillRow(
-                    text = "Mochy Music github \u2192",
-                    onClick = { context.openUrl(GithubRepoUrl) },
-                )
             }
 
             Spacer(Modifier.height(18.dp))
-            SectionHeader("meet the lead dev")
+            SectionHeader("Developer")
             Spacer(Modifier.height(8.dp))
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(24.dp))
-                    .background(MenuRowSurface)
-                    .padding(vertical = 6.dp),
-            ) {
-                LeadDevs.forEach { dev ->
-                    PersonRow(
-                        name = dev.name,
-                        subtitle = null,
-                        avatarUrl = githubAvatarUrl(dev.githubUser),
-                        fallbackRes = dev.fallbackAvatar,
-                        showArrow = true,
-                        onClick = { onOpenDevSpace(dev.devSpaceIndex) },
-                    )
-                }
-            }
-
-            Spacer(Modifier.height(18.dp))
-            SectionHeader("we wont exist without these guys")
-            Spacer(Modifier.height(8.dp))
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(24.dp))
-                    .background(MenuRowSurface)
-                    .padding(vertical = 6.dp),
-            ) {
-                BaseCredits.forEach { credit ->
-                    PersonRow(
-                        name = credit.name,
-                        subtitle = credit.subtitle,
-                        avatarUrl = githubAvatarUrl(credit.githubUser),
-                        showArrow = false,
-                        onClick = { context.openUrl(credit.url) },
-                    )
-                }
-            }
-
-            Spacer(Modifier.height(8.dp))
-            AndMoreRow(
-                avatars = remember { MoreCredits.take(3).map { githubAvatarUrl(it.githubUser) } },
-                onClick = { popup.showCreditsSheet() },
+            Text(
+                text = "Aryan Nayak",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(16.dp),
             )
-
             Spacer(Modifier.height(18.dp))
             SectionHeader("License")
             Spacer(Modifier.height(8.dp))
@@ -483,26 +439,6 @@ private fun ColumnScope.AboutSheetContent(
             )
 
             Spacer(Modifier.height(18.dp))
-            SectionHeader("Cool contributors")
-            Spacer(Modifier.height(8.dp))
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(24.dp))
-                    .background(MenuRowSurface)
-                    .padding(vertical = 6.dp),
-            ) {
-                contributors.forEach { contributor ->
-                    PersonRow(
-                        name = contributor.login,
-                        subtitle = null,
-                        avatarUrl = contributor.avatarUrl,
-                        showArrow = false,
-                        onClick = { context.openUrl(contributor.profileUrl) },
-                    )
-                }
-            }
-            Spacer(Modifier.height(8.dp))
         }
     }
 }
