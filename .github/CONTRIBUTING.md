@@ -42,7 +42,7 @@ Commit messages should be short and say what changed. Conventional prefixes (`fi
 
 ## Reporting bugs
 
-Open an [issue](https://github.com/realidkroo/Mochy-Music/issues) and include:
+Open an [issue](https://github.com/aryannayak-real/Tunestream/issues) and include:
 
 - Mochy version and your Android version and device
 - What you did, what you expected, and what happened instead

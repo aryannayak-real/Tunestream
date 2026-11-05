@@ -12,8 +12,8 @@ import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 
-const val GithubOwner = "realidkroo"
-const val GithubRepo = "Mochy-Music"
+const val GithubOwner = "aryannayak-real"
+const val GithubRepo = "Tunestream"
 
 const val GithubProfileUrl = "https://github.com/$GithubOwner"
 const val GithubRepoUrl = "https://github.com/$GithubOwner/$GithubRepo"
