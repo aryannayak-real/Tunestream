@@ -1,0 +1,92 @@
+name: TuneStream Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and Publish Signed Release
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Read App Version
+        id: version
+        run: |
+          VERSION_NAME=$(sed -nE 's/^[[:space:]]*versionName = "([^"]+)".*/\1/p' app/build.gradle.kts | head -n1)
+          TAG="v$(printf '%s' "$VERSION_NAME" | sed 's/ /-/g; s/#//g; s/[^A-Za-z0-9._-]//g')"
+          echo "version=$VERSION_NAME" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Release version: $VERSION_NAME"
+          echo "Release tag: $TAG"
+
+      - name: Check Existing Release
+        id: release_check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "This version is already published."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "New version will be published."
+          fi
+
+      - uses: actions/setup-java@v5
+        if: steps.release_check.outputs.exists != 'true'
+        with:
+          java-version: '21'
+          distribution: temurin
+
+      - uses: gradle/actions/setup-gradle@v4
+        if: steps.release_check.outputs.exists != 'true'
+        with:
+          cache-disabled: true
+
+      - name: Restore Release Signing Key
+        if: steps.release_check.outputs.exists != 'true'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          test -n "$KEYSTORE_BASE64"
+          mkdir -p app/keystore
+          printf '%s' "$KEYSTORE_BASE64" | base64 --decode > app/keystore/release.keystore
+
+      - name: Build Signed Release APK
+        if: steps.release_check.outputs.exists != 'true'
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_SECRET: ${{ secrets.LASTFM_SECRET }}
+          LIBREFM_API_KEY: ${{ secrets.LIBREFM_API_KEY }}
+          LIBREFM_SECRET: ${{ secrets.LIBREFM_SECRET }}
+          DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleUniversalGmsRelease --no-configuration-cache --console=plain --warning-mode summary
+
+      - name: Prepare APK
+        if: steps.release_check.outputs.exists != 'true'
+        run: |
+          APK=$(find app/build/outputs/apk/universalGms/release -type f -name '*.apk' -print -quit)
+          test -n "$APK"
+          cp "$APK" mochy.apk
+
+      - name: Publish GitHub Release
+        if: steps.release_check.outputs.exists != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.version.outputs.tag }}" mochy.apk \
+            --title "${{ steps.version.outputs.version }}" \
+            --generate-notes
