@@ -84,3 +84,6 @@ output-metadata.json
 vcs.xml
 lint/
 app/keystore/
+
+/website/node_modules/
+/website/dist/
