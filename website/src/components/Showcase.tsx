@@ -1,9 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion'
 
 const screens = [
-  { image: '/screenshots/library.jpg', title: 'Your music. Your space.', label: 'THE HOME EXPERIENCE', className: 'showcase-phone-left' },
-  { image: '/screenshots/player.jpg', title: 'Every beat, in focus.', label: 'THE PLAYER', className: 'showcase-phone-center' },
-  { image: '/screenshots/home.jpg', title: 'Everything in its place.', label: 'YOUR LIBRARY', className: 'showcase-phone-right' },
+  { image: import.meta.env.BASE_URL + 'screenshots/library.jpg', title: 'Your music. Your space.', label: 'THE HOME EXPERIENCE', className: 'showcase-phone-left' },
+  { image: import.meta.env.BASE_URL + 'screenshots/player.jpg', title: 'Every beat, in focus.', label: 'THE PLAYER', className: 'showcase-phone-center' },
+  { image: import.meta.env.BASE_URL + 'screenshots/home.jpg', title: 'Everything in its place.', label: 'YOUR LIBRARY', className: 'showcase-phone-right' },
 ]
 
 export default function Showcase() {
