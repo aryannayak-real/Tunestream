@@ -62,15 +62,15 @@ Updating works the same way: install the new apk over the old one and your libra
 
 ---
 
-## Some Prview 
+## Some Prview
 
-<img width="1799" height="927" alt="Frame 289" src="https://github.com/user-attachments/assets/c4c122ed-b86c-44e4-a618-417f5287bc98" />
-<img width="1799" height="927" alt="Frame 287" src="https://github.com/user-attachments/assets/186be8ac-ff3e-4e2a-ab7e-ae80bc9da7e7" />
-<img width="1799" height="927" alt="Frame 290" src="https://github.com/user-attachments/assets/c394603c-7aa7-4d78-8688-38a6c6e42232" />
-<img width="1799" height="927" alt="Frame 288" src="https://github.com/user-attachments/assets/06f5c13a-b8f1-4ecf-85aa-b17d020db5c8" />
-<img width="1799" height="927" alt="Frame 331" src="https://github.com/user-attachments/assets/71c5ee7e-75c1-479f-8075-039bab4f7fe7" />
-<img width="1799" height="927" alt="Frame 332" src="https://github.com/user-attachments/assets/e8c2084f-68ec-4959-a881-03a3b93df292" />
-<img width="1799" height="927" alt="Frame 333" src="https://github.com/user-attachments/assets/50580702-6bc9-4204-8665-b7d6c6390f78" />
+<img width="2858" height="1472" alt="TuneStream app screenshot 1" src="https://raw.githubusercontent.com/aryannayak-real/Tunestream/main/website/public/gallery/1793942287614.png" />
+<img width="2858" height="1472" alt="TuneStream app screenshot 2" src="https://raw.githubusercontent.com/aryannayak-real/Tunestream/main/website/public/gallery/1793942318378.png" />
+<img width="2858" height="1472" alt="TuneStream app screenshot 3" src="https://raw.githubusercontent.com/aryannayak-real/Tunestream/main/website/public/gallery/1793942337413.png" />
+<img width="2858" height="1472" alt="TuneStream app screenshot 4" src="https://raw.githubusercontent.com/aryannayak-real/Tunestream/main/website/public/gallery/1793942354034.png" />
+<img width="2858" height="1472" alt="TuneStream app screenshot 5" src="https://raw.githubusercontent.com/aryannayak-real/Tunestream/main/website/public/gallery/1793942371725.png" />
+<img width="2858" height="1472" alt="TuneStream app screenshot 6" src="https://raw.githubusercontent.com/aryannayak-real/Tunestream/main/website/public/gallery/1793942395684.png" />
+<img width="2858" height="1472" alt="TuneStream app screenshot 7" src="https://raw.githubusercontent.com/aryannayak-real/Tunestream/main/website/public/gallery/1793942417635.png" />
 
 
 ---
