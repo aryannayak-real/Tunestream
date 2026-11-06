@@ -1,3 +1,4 @@
+import { DoorSlider } from './components/ui/door-slider'
 import PlayerPreview from './components/PlayerPreview'
 import FAQ from './components/FAQ'
 import WhatsNew from './components/WhatsNew'
@@ -37,6 +38,17 @@ const features = [
     description:
       'From the interface to the listening experience, TuneStream is built with care.',
   },
+]
+
+
+const galleryImages = [
+  import.meta.env.BASE_URL + `gallery/1793942287614.png`,
+  import.meta.env.BASE_URL + `gallery/1793942318378.png`,
+  import.meta.env.BASE_URL + `gallery/1793942337413.png`,
+  import.meta.env.BASE_URL + `gallery/1793942354034.png`,
+  import.meta.env.BASE_URL + `gallery/1793942371725.png`,
+  import.meta.env.BASE_URL + `gallery/1793942395684.png`,
+  import.meta.env.BASE_URL + `gallery/1793942417635.png`,
 ]
 
 export default function App() {
@@ -149,6 +161,19 @@ export default function App() {
           <span>01 / 03</span>
           <span>SCROLL TO EXPLORE</span>
         </div>
+      </section>
+
+
+      <section className="gallery-section" aria-label="TuneStream visual gallery">
+        <div className="gallery-heading">
+          <p className="eyebrow">A DIFFERENT WAY TO EXPERIENCE MUSIC</p>
+          <h2>Music looks better<br /><span>in motion.</span></h2>
+          <p>Take a closer look. Drag, explore and discover TuneStream.</p>
+        </div>
+        <div className="gallery-stage">
+          <DoorSlider images={galleryImages} />
+        </div>
+        <p className="gallery-hint"><span /> DRAG TO EXPLORE <span /></p>
       </section>
 
       <section className="statement" id="experience">
